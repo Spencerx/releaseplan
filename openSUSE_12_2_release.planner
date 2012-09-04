@@ -207,11 +207,11 @@
     </task>
     <task id="53" name="Gold Master development" note="Milestone that covers from the RC2 Release to the Go/NoGo decision for the final Release" work="864000" start="20120810T170000Z" end="20120821T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="184" type="FS"/>
+        <predecessor id="1" predecessor-id="186" type="FS"/>
       </predecessors>
       <task id="54" name="Call for Release Parties" note="http://en.opensuse.org/openSUSE:Launch_parties&#10;http://en.opensuse.org/openSUSE:Launch_party_HOWTO&#10;http://news.opensuse.org/2011/11/15/join-or-organize-opensuse-12-1-launch-parties/" work="28800" start="20120810T170000Z" end="20120811T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="184" type="FS"/>
+          <predecessor id="1" predecessor-id="186" type="FS"/>
         </predecessors>
       </task>
       <task id="55" name="Update Release notes" note="update release notes with issues found during development" work="28800" start="20120813T170000Z" end="20120814T170000Z" work-start="20120814T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
@@ -249,7 +249,7 @@
       <task id="61" name="monitor bug reports" note="ongoing bugzilla work" work="86400" start="20120810T170000Z" end="20120814T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <task id="62" name="flag release critical bugs" note="set ship_stopper flag on bugs that need to be resolved before release" work="28800" start="20120810T170000Z" end="20120811T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="182" type="FS"/>
+            <predecessor id="1" predecessor-id="184" type="FS"/>
           </predecessors>
         </task>
         <task id="63" name="remind people to fix critical bugs" note="Remind the developers or packagers about the deadlines for submittting the fixes to include them on the final release." work="28800" start="20120811T170000Z" end="20120812T170000Z" work-start="20120812T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
@@ -351,7 +351,7 @@
           <predecessor id="1" predecessor-id="86" type="FS"/>
           <predecessor id="1" predecessor-id="87" type="FS"/>
           <predecessor id="1" predecessor-id="80" type="FS"/>
-          <predecessor id="1" predecessor-id="179" type="FS"/>
+          <predecessor id="1" predecessor-id="181" type="FS"/>
         </predecessors>
       </task>
     </task>
@@ -365,15 +365,15 @@
         </predecessors>
       </task>
     </task>
-    <task id="91" name="Release process" note="things done the days and hours between GM and GA" work="1819080" start="20120823T170000Z" end="20120907T080500Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="91" name="Release process" note="things done the days and hours between GM and GA" work="1876680" start="20120823T170000Z" end="20120908T080500Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="185" type="FS"/>
+        <predecessor id="1" predecessor-id="187" type="FS"/>
       </predecessors>
       <task id="92" name="Upload GM to internal server (dist)" note="" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="93" name="Announce GM internally" note="" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="94" name="Sneak Peeks" note="Daily blog posts about selected features of the new release to create expectations. Blog posts about the release features:" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="184" type="FS"/>
+          <predecessor id="1" predecessor-id="186" type="FS"/>
         </predecessors>
       </task>
       <task id="95" name="www.opensuse.org text snippet" note="there's a small paragraph on www.opensuse.org that refers to download, highlighs etc." work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
@@ -512,7 +512,7 @@
       </task>
       <task id="136" name="enable component &quot;Final&quot; in Bugzilla" note="Bugzilla has to have a component &quot;Final&quot; so people can report bugs they find" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="137" name="update doc.opensuse.org" note="Upload documentation to doc.opensuse.org" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="138" name="https://www.suse.com/documentation/" note="notify web team to install redirect for new release to doc.opensuse.org" work="28800" start="20120824T170000Z" end="20120825T170000Z" work-start="20120825T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="138" name="https://www.suse.com/documentation/" note="notify web team to install redirect for new release to doc.opensuse.org&#10;file bug for karulkumar@novell.com" work="28800" start="20120824T170000Z" end="20120825T170000Z" work-start="20120825T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="137" type="FS"/>
         </predecessors>
@@ -534,7 +534,7 @@
       <task id="141" name="SUSE press release" note="write official announcemnt by the company about openSUSE" work="28800" start="20120827T170000Z" end="20120828T170000Z" work-start="20120828T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="108" type="FS"/>
-          <predecessor id="1" predecessor-id="157" type="FS"/>
+          <predecessor id="1" predecessor-id="159" type="FS"/>
         </predecessors>
       </task>
       <task id="142" name="Press interviews" note="The Release Manager (coolo) and the openSUSE Project Manager (AJ) will be available for the press" work="28800" start="20120828T170000Z" end="20120829T170000Z" work-start="20120829T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
@@ -547,47 +547,57 @@
           <predecessor id="1" predecessor-id="38" type="FS"/>
         </predecessors>
       </task>
-      <task id="144" name="make files readable on internal staging server" note="This is basically the technical release time" work="28800" start="20120830T170000Z" end="20120831T170000Z" work-start="20120831T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="144" name="make files readable on staging server" note="all mirrors can now catch up&#10;&#10;do this four hours before the announcement" work="28800" start="20120830T170000Z" end="20120831T170000Z" work-start="20120831T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="159" type="FS"/>
+          <predecessor id="1" predecessor-id="161" type="FS"/>
           <predecessor id="1" predecessor-id="107" type="FS"/>
           <predecessor id="1" predecessor-id="139" type="FS"/>
         </predecessors>
       </task>
-      <task id="145" name="publish files on pontifex.o.o and rsync.o.o" note="making files available on external staging servers" work="28800" start="20120831T170000Z" end="20120901T170000Z" work-start="20120901T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="145" name="make all files visible on download.o.o " note="make all files visible on download.opensuse.org, incl iso images " work="28800" start="20120831T170000Z" end="20120901T170000Z" work-start="20120901T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="144" type="FS"/>
         </predecessors>
       </task>
-      <task id="146" name="rescan mirrors" note="tell mirrorbrain to rescan mirrors" work="28800" start="20120901T170000Z" end="20120902T170000Z" work-start="20120902T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="146" name="change openSUSE-current" note="change symlink openSUSE-current in distribution/ and update/ to point to new release " work="28800" start="20120901T170000Z" end="20120902T170000Z" work-start="20120902T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="145" type="FS"/>
         </predecessors>
       </task>
-      <task id="147" name="wait for mirrors to fill up" note="15-20 mirrors should have picked up the new release before announcing the release" work="28800" start="20120902T170000Z" end="20120903T170000Z" work-start="20120903T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="147" name="rescan mirrors" note="tell mirrorbrain to rescan mirrors" work="28800" start="20120901T170000Z" end="20120902T170000Z" work-start="20120902T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="146" type="FS"/>
+          <predecessor id="1" predecessor-id="145" type="FS"/>
         </predecessors>
       </task>
-      <task id="148" name="update software.opensuse.org download pages" note="git@gitorious.org:opensuse/software-o-o.git&#10;&#10;app/controllers/main_controller.rb" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="149" name="deploy software.opensuse.org" note="changes were only made in git so far so the git repo needs to be deployed to the server to make the new content visible" work="28800" start="20120903T170000Z" end="20120904T170000Z" work-start="20120904T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="148" name="wait for mirrors to fill up" note="15-20 mirrors should have picked up the new release before announcing the release" work="28800" start="20120902T170000Z" end="20120903T170000Z" work-start="20120903T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="147" type="FS"/>
-          <predecessor id="1" predecessor-id="148" type="FS"/>
         </predecessors>
       </task>
-      <task id="150" name="create is_maintained data" note="internal data used mainly by security to determine which packages are in which release" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="151" name="make sure 3rd party repos are prepared" note="make sure 3rd party repos are ready for the new release" work="86400" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="152" name="Nvidia" note="nvidia needs to publish their binary only drivers" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="153" name="ATI" note="ati needs to publish their binary only drivers" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="154" name="Packman" note="packman needs to make their repos build for the new release" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="149" name="update software.opensuse.org download pages" note="git@gitorious.org:opensuse/software-o-o.git&#10;&#10;app/controllers/main_controller.rb" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="150" name="deploy software.opensuse.org" note="changes were only made in git so far so the git repo needs to be deployed to the server to make the new content visible" work="28800" start="20120903T170000Z" end="20120904T170000Z" work-start="20120904T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="148" type="FS"/>
+          <predecessor id="1" predecessor-id="149" type="FS"/>
+        </predecessors>
       </task>
-      <task id="155" name="Create Google alerts for openSUSE 12.2" note="get notification from google about activity wrt openSUSE" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="156" name="Release announcement " note="group of tasks that need to be done for the release announcement" work="91080" start="20120826T170000Z" end="20120905T080500Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="151" name="test software.opensuse.org" note="make sure all links work fine" work="28800" start="20120904T170000Z" end="20120905T170000Z" work-start="20120905T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="150" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="152" name="create is_maintained data" note="internal data used mainly by security to determine which packages are in which release" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="153" name="make sure 3rd party repos are prepared" note="make sure 3rd party repos are ready for the new release" work="86400" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="154" name="Nvidia" note="nvidia needs to publish their binary only drivers" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="155" name="ATI" note="ati needs to publish their binary only drivers" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="156" name="Packman" note="packman needs to make their repos build for the new release" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      </task>
+      <task id="157" name="Create Google alerts for openSUSE 12.2" note="get notification from google about activity wrt openSUSE" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="158" name="Release announcement " note="group of tasks that need to be done for the release announcement" work="91080" start="20120826T170000Z" end="20120906T080500Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="108" type="FS"/>
         </predecessors>
-        <task id="157" name="Write release announcement" note="on news.opensuse.org,&#10;text based on product highlights page" work="28800" start="20120826T170000Z" end="20120827T170000Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="159" name="Write release announcement" note="on news.opensuse.org,&#10;text based on product highlights page" work="28800" start="20120826T170000Z" end="20120827T170000Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="113" type="FS"/>
             <predecessor id="1" predecessor-id="108" type="FS"/>
@@ -595,141 +605,141 @@
             <predecessor id="1" predecessor-id="137" type="FS"/>
           </predecessors>
         </task>
-        <task id="158" name="Translate release announcement" note="We write the Announcement in English and community members translate it. We include those in the wiki and link them in the Release announcement before publishing&#10;&#10;Wordpress on news.opensuse.org currently has no translation mechanism so we need to use the wiki for translations" work="28800" start="20120827T170000Z" end="20120828T170000Z" work-start="20120828T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="160" name="Translate release announcement" note="We write the Announcement in English and community members translate it. We include those in the wiki and link them in the Release announcement before publishing&#10;&#10;Wordpress on news.opensuse.org currently has no translation mechanism so we need to use the wiki for translations" work="28800" start="20120827T170000Z" end="20120828T170000Z" work-start="20120828T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="94" type="FS"/>
-            <predecessor id="1" predecessor-id="157" type="FS"/>
-          </predecessors>
-        </task>
-        <task id="159" name="check the announcement" note="Revision by the content/marketing coordinator. Communicate the ok to Release Manager." work="3600" start="20120828T170000Z" end="20120829T090000Z" work-start="20120829T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <predecessors>
-            <predecessor id="1" predecessor-id="151" type="FS"/>
-            <predecessor id="1" predecessor-id="158" type="FS"/>
-          </predecessors>
-        </task>
-        <task id="160" name="Create correct links to webpages and wikies" note="The Release Manager approves this task. Needs to be coordinated with infrastructure, infrastructure needs to be open before publishing" work="28800" start="20120830T170000Z" end="20120831T170000Z" work-start="20120831T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <predecessors>
-            <predecessor id="1" predecessor-id="148" type="FS"/>
-            <predecessor id="1" predecessor-id="142" type="FS" lag="86400"/>
-            <predecessor id="1" predecessor-id="155" type="FS"/>
-            <predecessor id="1" predecessor-id="110" type="FS"/>
-            <predecessor id="1" predecessor-id="111" type="FS"/>
-            <predecessor id="1" predecessor-id="109" type="FS"/>
             <predecessor id="1" predecessor-id="159" type="FS"/>
           </predecessors>
         </task>
-        <task id="161" name="Publish release announcement" note="The Release Manager gives ok for publishing the announcement&#10;&#10;for the future this should be Tuesday 13:00 UTC" work="1080" start="20120904T170000Z" end="20120905T080500Z" work-start="20120905T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="161" name="check the announcement" note="Revision by the content/marketing coordinator. Communicate the ok to Release Manager." work="3600" start="20120828T170000Z" end="20120829T090000Z" work-start="20120829T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="147" type="FS"/>
-            <predecessor id="1" predecessor-id="149" type="FS"/>
+            <predecessor id="1" predecessor-id="153" type="FS"/>
             <predecessor id="1" predecessor-id="160" type="FS"/>
           </predecessors>
-          <task id="162" name="news.opensuse.org" note="" work="360" start="20120904T170000Z" end="20120905T080500Z" work-start="20120905T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="163" name="opensuse-project@opensuse.org" note="" work="360" start="20120904T170000Z" end="20120905T080500Z" work-start="20120905T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="164" name="publish SUSE press release" note="" work="360" start="20120904T170000Z" end="20120905T080500Z" work-start="20120905T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        </task>
+        <task id="162" name="Create correct links to webpages and wikies" note="The Release Manager approves this task. Needs to be coordinated with infrastructure, infrastructure needs to be open before publishing" work="28800" start="20120830T170000Z" end="20120831T170000Z" work-start="20120831T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="149" type="FS"/>
+            <predecessor id="1" predecessor-id="142" type="FS" lag="86400"/>
+            <predecessor id="1" predecessor-id="157" type="FS"/>
+            <predecessor id="1" predecessor-id="110" type="FS"/>
+            <predecessor id="1" predecessor-id="111" type="FS"/>
+            <predecessor id="1" predecessor-id="109" type="FS"/>
+            <predecessor id="1" predecessor-id="161" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="163" name="Publish release announcement" note="The Release Manager gives ok for publishing the announcement&#10;&#10;for the future this should be Tuesday 13:00 UTC" work="1080" start="20120905T170000Z" end="20120906T080500Z" work-start="20120906T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="151" type="FS"/>
+            <predecessor id="1" predecessor-id="148" type="FS"/>
+            <predecessor id="1" predecessor-id="162" type="FS"/>
+          </predecessors>
+          <task id="164" name="news.opensuse.org" note="" work="360" start="20120905T170000Z" end="20120906T080500Z" work-start="20120906T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="165" name="opensuse-project@opensuse.org" note="" work="360" start="20120905T170000Z" end="20120906T080500Z" work-start="20120906T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="166" name="publish SUSE press release" note="" work="360" start="20120905T170000Z" end="20120906T080500Z" work-start="20120906T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="141" type="FS"/>
             </predecessors>
           </task>
         </task>
       </task>
-      <task id="165" name="Release monitoring" note="Task to be done the Release date after the announcement is out" work="115200" start="20120905T080500Z" end="20120907T080500Z" work-start="20120905T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="167" name="Release monitoring" note="Task to be done the Release date after the announcement is out" work="115200" start="20120906T080500Z" end="20120908T080500Z" work-start="20120906T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="156" type="FS"/>
+          <predecessor id="1" predecessor-id="158" type="FS"/>
         </predecessors>
-        <task id="166" name="promote launch on social media" note="facebook, twitter, google+ This task needs coordination with community" work="28800" start="20120905T080500Z" end="20120906T080500Z" work-start="20120905T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="168" name="promote launch on social media" note="facebook, twitter, google+ This task needs coordination with community" work="28800" start="20120906T080500Z" end="20120907T080500Z" work-start="20120906T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="161" type="FS"/>
+            <predecessor id="1" predecessor-id="163" type="FS"/>
           </predecessors>
         </task>
-        <task id="167" name="repeatedly scan for new mirrors" note="Task done by service team during Release day for several hours" work="28800" start="20120905T080500Z" end="20120906T080500Z" work-start="20120905T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="169" name="repeatedly scan for new mirrors" note="Task done by service team during Release day for several hours" work="28800" start="20120906T080500Z" end="20120907T080500Z" work-start="20120906T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="161" type="FS"/>
+            <predecessor id="1" predecessor-id="163" type="FS"/>
           </predecessors>
         </task>
-        <task id="168" name="watch bandwidth usage" note="Task done by service team on Release date" work="28800" start="20120906T080500Z" end="20120907T080500Z" work-start="20120906T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="170" name="watch bandwidth usage" note="Task done by service team on Release date" work="28800" start="20120907T080500Z" end="20120908T080500Z" work-start="20120907T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="167" type="FS"/>
+            <predecessor id="1" predecessor-id="169" type="FS"/>
           </predecessors>
         </task>
-        <task id="169" name="Monitoring real time impact" note="openSUSE Team, Release Team and community memebrss involved answer questions, are available in openSUSE Channels, etc." work="28800" start="20120905T080500Z" end="20120906T080500Z" work-start="20120905T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="171" name="Monitoring real time impact" note="openSUSE Team, Release Team and community memebrss involved answer questions, are available in openSUSE Channels, etc." work="28800" start="20120906T080500Z" end="20120907T080500Z" work-start="20120906T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="161" type="FS"/>
+            <predecessor id="1" predecessor-id="163" type="FS"/>
           </predecessors>
         </task>
       </task>
     </task>
-    <task id="170" name="Evaluation" note="post-release work" work="201600" start="20120908T080500Z" end="20120912T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="172" name="Evaluation" note="post-release work" work="201600" start="20120909T080500Z" end="20120913T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="186" type="FS"/>
+        <predecessor id="1" predecessor-id="188" type="FS"/>
       </predecessors>
-      <task id="171" name="collect press mentions" note="add links to articles by the press to http://en.opensuse.org/In_the_press" work="28800" start="20120908T080500Z" end="20120909T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="173" name="collect press mentions" note="add links to articles by the press to http://en.opensuse.org/In_the_press" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="169" type="FS"/>
-          <predecessor id="1" predecessor-id="186" type="FS"/>
-          <predecessor id="1" predecessor-id="155" type="FS"/>
-        </predecessors>
-      </task>
-      <task id="172" name="Collect stats about release" note="compile download statistics from web server logs" work="28800" start="20120908T080500Z" end="20120909T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="186" type="FS"/>
-        </predecessors>
-      </task>
-      <task id="173" name="Create and publish conclusion article" note="Article with mentions and summary of impact of 12.2 release, with quotes from media" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="172" type="FS"/>
           <predecessor id="1" predecessor-id="171" type="FS"/>
+          <predecessor id="1" predecessor-id="188" type="FS"/>
+          <predecessor id="1" predecessor-id="157" type="FS"/>
         </predecessors>
       </task>
-      <task id="174" name="Create next product in Bugzilla" note="Create the next version of openSUSE as product in bugzilla so people can start filing bugs" work="115200" start="20120908T080500Z" end="20120912T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="175" name="File Bug report for NPP" note="new products need to be requested by filing a bug report" work="28800" start="20120908T080500Z" end="20120909T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="176" name="Initialize product data (categories)" note="copy data from previous product to new one" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <predecessors>
-            <predecessor id="1" predecessor-id="175" type="FS"/>
-          </predecessors>
-        </task>
-        <task id="177" name="request product to be made public" note="Bugzilla products are not public by default so that needs to be requested manually" work="28800" start="20120910T080500Z" end="20120911T080500Z" work-start="20120910T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <predecessors>
-            <predecessor id="1" predecessor-id="176" type="FS"/>
-          </predecessors>
-        </task>
-        <task id="178" name="setup milestones" note="e.g. when milestone 1 is released, add milestone 2" work="28800" start="20120911T080500Z" end="20120912T080500Z" work-start="20120911T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="174" name="Collect stats about release" note="compile download statistics from web server logs" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="188" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="175" name="Create and publish conclusion article" note="Article with mentions and summary of impact of 12.2 release, with quotes from media" work="28800" start="20120910T080500Z" end="20120911T080500Z" work-start="20120910T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="174" type="FS"/>
+          <predecessor id="1" predecessor-id="173" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="176" name="Create next product in Bugzilla" note="Create the next version of openSUSE as product in bugzilla so people can start filing bugs" work="115200" start="20120909T080500Z" end="20120913T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="177" name="File Bug report for NPP" note="new products need to be requested by filing a bug report" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="178" name="Initialize product data (categories)" note="copy data from previous product to new one" work="28800" start="20120910T080500Z" end="20120911T080500Z" work-start="20120910T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="177" type="FS"/>
           </predecessors>
         </task>
+        <task id="179" name="request product to be made public" note="Bugzilla products are not public by default so that needs to be requested manually" work="28800" start="20120911T080500Z" end="20120912T080500Z" work-start="20120911T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="178" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="180" name="setup milestones" note="e.g. when milestone 1 is released, add milestone 2" work="28800" start="20120912T080500Z" end="20120913T080500Z" work-start="20120912T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="179" type="FS"/>
+          </predecessors>
+        </task>
       </task>
     </task>
-    <task id="179" name="continuous openQA work" note="http://openqa.opensuse.org/" work="86400" start="20120804T000000Z" end="20120806T170000Z" work-start="20120804T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="180" name="update openQA testcases" note="changes in the installation workflow might require adjusting the scripts used by openQA" work="28800" start="20120804T000000Z" end="20120804T170000Z" work-start="20120804T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="181" name="debug issues found by openQA" note="try to reproduce openQA failures locally to find the cause" work="28800" start="20120804T170000Z" end="20120805T170000Z" work-start="20120805T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="181" name="continuous openQA work" note="http://openqa.opensuse.org/" work="86400" start="20120804T000000Z" end="20120806T170000Z" work-start="20120804T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="182" name="update openQA testcases" note="changes in the installation workflow might require adjusting the scripts used by openQA" work="28800" start="20120804T000000Z" end="20120804T170000Z" work-start="20120804T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="183" name="debug issues found by openQA" note="try to reproduce openQA failures locally to find the cause" work="28800" start="20120804T170000Z" end="20120805T170000Z" work-start="20120805T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="180" type="FS"/>
+          <predecessor id="1" predecessor-id="182" type="FS"/>
         </predecessors>
       </task>
-      <task id="182" name="file bugs for openQA issues" note="file bug report with the details found during debugging" work="28800" start="20120805T170000Z" end="20120806T170000Z" work-start="20120806T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="184" name="file bugs for openQA issues" note="file bug report with the details found during debugging" work="28800" start="20120805T170000Z" end="20120806T170000Z" work-start="20120806T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="181" type="FS"/>
+          <predecessor id="1" predecessor-id="183" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="183" name="Release process Roadmap check" note="http://en.opensuse.org/openSUSE:Roadmap" work="86400" start="20120809T170000Z" end="20120908T080500Z" work-start="20120810T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="184" name="Define and publish Gold Master roadmap" note="define which tasks need to be done and when during RC phase&#10;&#10;announce internally and externally" work="28800" start="20120809T170000Z" end="20120810T170000Z" work-start="20120810T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="185" name="Release process Roadmap check" note="http://en.opensuse.org/openSUSE:Roadmap" work="86400" start="20120809T170000Z" end="20120909T080500Z" work-start="20120810T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="186" name="Define and publish Gold Master roadmap" note="define which tasks need to be done and when during RC phase&#10;&#10;announce internally and externally" work="28800" start="20120809T170000Z" end="20120810T170000Z" work-start="20120810T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="1" type="FS"/>
           <predecessor id="1" predecessor-id="37" type="FS"/>
         </predecessors>
       </task>
-      <task id="185" name="Define and publish Release schedule" note="define what needs to be done at the day of the release&#10;&#10;announce internally and externally" work="28800" start="20120822T170000Z" end="20120823T170000Z" work-start="20120823T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="187" name="Define and publish Release schedule" note="define what needs to be done at the day of the release&#10;&#10;announce internally and externally" work="28800" start="20120822T170000Z" end="20120823T170000Z" work-start="20120823T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="89" type="FS"/>
         </predecessors>
       </task>
-      <task id="186" name="Define Evaluation process roadmap" note="define which tasks need to be done after the release&#10;&#10;announce internally and externally" work="28800" start="20120907T080500Z" end="20120908T080500Z" work-start="20120907T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="188" name="Define Evaluation process roadmap" note="define which tasks need to be done after the release&#10;&#10;announce internally and externally" work="28800" start="20120908T080500Z" end="20120909T080500Z" work-start="20120908T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
-          <predecessor id="1" predecessor-id="169" type="FS"/>
+          <predecessor id="1" predecessor-id="171" type="FS"/>
+          <predecessor id="1" predecessor-id="170" type="FS"/>
           <predecessor id="1" predecessor-id="168" type="FS"/>
-          <predecessor id="1" predecessor-id="166" type="FS"/>
           <predecessor id="1" predecessor-id="91" type="FS"/>
         </predecessors>
       </task>
