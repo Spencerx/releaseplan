@@ -401,7 +401,7 @@
           <predecessor id="1" predecessor-id="100" type="FS"/>
         </predecessors>
       </task>
-      <task id="105" name="update mirrors.opensuse.org" note="add the new release to the index page&#10;set &quot;markers&quot; for the new release" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="105" name="update mirrors.opensuse.org" note="add the new release to the index page&#10;set &quot;markers&quot; for the new release&#10;/srv/www/vhosts/mirrors.opensuse.org/openSUSE_html_header" work="28800" start="20120823T170000Z" end="20120824T170000Z" work-start="20120824T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="106" name="update the staging area for the mirrors" note="" work="57600" start="20120826T170000Z" end="20120828T170000Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="105" type="FS"/>
