@@ -1,0 +1,10 @@
+# A traditional Gantt Chart for the TaskJugglerUI
+taskreport "Gantt Chart" {
+  headline "Project Gantt Chart"
+  columns hierarchindex, name, chart
+  # For this report we like to have the abbreviated weekday in front
+  # of the date. %a is the tag for this.
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+}

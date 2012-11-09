@@ -1,0 +1,70 @@
+#!/usr/bin/perl -w
+
+use strict;
+use XML::Bare;
+use Data::Dumper;
+
+my $x = new XML::Bare(file => $ARGV[0] ) or die "$!";
+my $root = $x->parse() or die "$!";
+
+my @parents;
+my %tasks;
+my $pass;
+
+sub o {
+	print @_ if $pass;
+}
+
+sub process_task($$);
+
+sub process_task($$)
+{
+	my $depth = shift;
+	my $node = shift;
+	my $indent = '  'x$depth;
+	my $id = $node->{'id'}->{'value'};
+	my $name = $node->{'name'}->{'value'};
+	my $note = $node->{'note'}->{'value'};
+
+	push @parents, $id;
+
+	$tasks{$id} = join('.', map { 'task_'.$_ } @parents);
+
+	o sprintf "%stask task_%s \"%s\" {\n", $indent, $id, $name;
+	if ($note) {
+		# FIXME: handle multi line
+		#o sprintf "%s  note -8<-\n", $indent;
+		#o sprintf "%s    %s\n", $indent, $note;
+		#o sprintf "%s   ->8-\n", $indent;
+		o sprintf "%s   note \"%s\"\n", $indent, $note;
+	}
+
+	if ($pass && $node->{'predecessors'}) {
+		for my $pred (@{XML::Bare::forcearray($node->{'predecessors'}->{'predecessor'})}) {
+			o sprintf "%s  depends %s\n", $indent, $tasks{$pred->{'predecessor-id'}->{'value'}};
+		}
+	}
+
+	#print Dumper($node->{'task'});
+	if ($node->{'task'}) {
+		for my $subnode (@{XML::Bare::forcearray($node->{'task'})}) {
+			process_task($depth+1, $subnode);
+		}
+	} else {
+		# FIXME
+		o sprintf "%s   length 1d\n", $indent;
+		#o sprintf "%s   allocate dev\n", $indent;
+	}
+	o sprintf "%s}\n", $indent;
+
+	pop @parents;
+}
+
+#print Dumper($root);
+
+for (0, 1) {
+	$pass = $_;
+	for my $node (@{XML::Bare::forcearray($root->{'project'}->{'tasks'}->{'task'})}) {
+		process_task(0, $node);
+	}
+}

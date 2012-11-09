@@ -1,0 +1,25 @@
+macro start_work [2012-11-01-0:00-+0200]
+
+project openSUSE_12_3 "openSUSE 12.3 release schedule" "1.0" ${start_work} +1y {
+  timezone "Europe/Berlin"
+  # Hide the clock time. Only show the date.
+  timeformat "%Y-%m-%d"
+  # Use US format for numbers
+  numberformat "-" "" "," "." 1
+  # Use US financial format for currency values. Don't show cents.
+  currencyformat "(" ")" "," "." 0
+  # Pick a day during the project that will be reported as 'today' in
+  # the project reports. If not specified, the current day will be
+  # used, but this will likely be outside of the project range, so it
+  # can't be seen in the reports.
+  now 2012-11-07
+}
+
+copyright "SUSE Linux Products GmbH, 2012"
+
+resource dev "Developers" {
+}
+
+include "tasks.tji"
+
+include "reports.tji"
