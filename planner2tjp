@@ -15,6 +15,22 @@ sub o {
 	print @_ if $pass;
 }
 
+sub relative($$) {
+	my @me = @{$_[0]};
+	my @dep = @{$_[1]};
+
+	my $r = scalar @me;
+	my $c = 0;
+	while ($me[0] eq $dep[0]) {
+		shift @me;
+		shift @dep;
+		++$c;
+	}
+	my $pfx = '';
+	$pfx.='!'x($r-$c) if $c;
+	return $pfx.join('.', map { 'task_'.$_ } @dep);
+}
+
 sub process_task($$);
 
 sub process_task($$)
@@ -28,7 +44,7 @@ sub process_task($$)
 
 	push @parents, $id;
 
-	$tasks{$id} = join('.', map { 'task_'.$_ } @parents);
+	$tasks{$id} = [ @parents ];
 
 	o sprintf "%stask task_%s \"%s\" {\n", $indent, $id, $name;
 	if ($note) {
@@ -41,7 +57,7 @@ sub process_task($$)
 
 	if ($pass && $node->{'predecessors'}) {
 		for my $pred (@{XML::Bare::forcearray($node->{'predecessors'}->{'predecessor'})}) {
-			o sprintf "%s   depends %s\n", $indent, $tasks{$pred->{'predecessor-id'}->{'value'}};
+			o sprintf "%s   depends %s\n", $indent, relative(\@parents, $tasks{$pred->{'predecessor-id'}->{'value'}});
 		}
 	}
 
