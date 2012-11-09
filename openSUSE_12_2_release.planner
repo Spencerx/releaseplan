@@ -215,11 +215,7 @@
       <predecessors>
         <predecessor id="1" predecessor-id="194" type="FS"/>
       </predecessors>
-      <task id="56" name="Call for Release Parties" note="http://en.opensuse.org/openSUSE:Launch_parties&#10;http://en.opensuse.org/openSUSE:Launch_party_HOWTO&#10;http://news.opensuse.org/2011/11/15/join-or-organize-opensuse-12-1-launch-parties/" work="28800" start="20120810T170000Z" end="20120811T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="194" type="FS"/>
-        </predecessors>
-      </task>
+      <task id="56" name="Call for Release Parties" note="http://en.opensuse.org/openSUSE:Launch_parties&#10;http://en.opensuse.org/openSUSE:Launch_party_HOWTO&#10;http://news.opensuse.org/2011/11/15/join-or-organize-opensuse-12-1-launch-parties/" work="28800" start="20120810T170000Z" end="20120811T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="57" name="collect stats for RC" note="" work="28800" start="20120810T170000Z" end="20120811T170000Z" work-start="20120811T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="58" name="Update Release notes" note="update release notes with issues found during development" work="28800" start="20120813T170000Z" end="20120814T170000Z" work-start="20120814T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
@@ -622,7 +618,6 @@
         <task id="166" name="Write release announcement" note="on news.opensuse.org,&#10;text based on product highlights page" work="28800" start="20120826T170000Z" end="20120827T170000Z" work-start="20120827T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="117" type="FS"/>
-            <predecessor id="1" predecessor-id="112" type="FS"/>
             <predecessor id="1" predecessor-id="148" type="FS"/>
             <predecessor id="1" predecessor-id="142" type="FS"/>
           </predecessors>
@@ -699,15 +694,10 @@
       <task id="181" name="collect press mentions" note="add links to articles by the press to http://en.opensuse.org/In_the_press" work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="179" type="FS"/>
-          <predecessor id="1" predecessor-id="196" type="FS"/>
           <predecessor id="1" predecessor-id="164" type="FS"/>
         </predecessors>
       </task>
-      <task id="182" name="Collect stats about release" note="compile download statistics from web server logs, G+, Facebook, twitter etc." work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="196" type="FS"/>
-        </predecessors>
-      </task>
+      <task id="182" name="Collect stats about release" note="compile download statistics from web server logs, G+, Facebook, twitter etc." work="28800" start="20120909T080500Z" end="20120910T080500Z" work-start="20120909T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="183" name="Create and publish conclusion article" note="Article with mentions and summary of impact of 12.2 release, with quotes from media" work="28800" start="20120910T080500Z" end="20120911T080500Z" work-start="20120910T080500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="182" type="FS"/>
