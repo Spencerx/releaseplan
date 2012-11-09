@@ -41,7 +41,7 @@ sub process_task($$)
 
 	if ($pass && $node->{'predecessors'}) {
 		for my $pred (@{XML::Bare::forcearray($node->{'predecessors'}->{'predecessor'})}) {
-			o sprintf "%s  depends %s\n", $indent, $tasks{$pred->{'predecessor-id'}->{'value'}};
+			o sprintf "%s   depends %s\n", $indent, $tasks{$pred->{'predecessor-id'}->{'value'}};
 		}
 	}
 
