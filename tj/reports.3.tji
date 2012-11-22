@@ -60,6 +60,18 @@ textreport frame "" {
     title "Resource Graph"
     center '<[report id="resourceGraph"]>'
   }
+  textreport "ReleaseProcess" {
+    formats html
+    title "Release Process"
+    center '<[report id="release"]>'
+  }
+
+  textreport "ImportantMilestones" {
+    formats html
+    title "Important Milestones"
+    center '<[report id="calendar"]>'
+  }
+
 }
 
 # A traditional Gantt chart with a project overview.
@@ -170,6 +182,32 @@ resourcereport resourceGraph "" {
   # We only like to show leaf tasks for leaf resources.
   hidetask ~(isleaf() & isleaf_())
   sorttasks plan.start.up
+}
+
+taskreport release "" {
+  columns bsi { title 'WBS' },
+          name,
+          #start, end, effort,
+          chart { ${TaskTip} }
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  taskroot release_process
+}
+
+taskreport calendar "Important Milestones" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} }
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~calendar
+}
+
+icalreport "${product}-${version}-calendar" {
+  hidetask ~calendar
 }
 
 tagfile "tags"

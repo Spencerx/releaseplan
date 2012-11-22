@@ -1,4 +1,4 @@
-task task_1 "Pre-Gold Master development" {
+task beta_phase "Pre-Gold Master development" {
    note "Tasks that need to be done for Alpha, Beta and RC releases that affect the Gold Master Release "
   task task_2 "Expected new features document" {
      note "Compile a list of features for the new release. E.g by querying fate"
@@ -94,35 +94,36 @@ task task_1 "Pre-Gold Master development" {
        length 1d
     }
   }
-  task task_23 "prepare stable branch" {
+  task prepare_branch "prepare stable branch" {
      note "create a stable branch so development in Factory can continue"
     task task_24 "branch new distro in OBS" {
        note "branch openSUSE:XX.Y from openSUSE:Factory"
-       length 1d
+       length 1h
     }
     task task_25 "enable ARCHIVES.gz  and suse repo data" {
        note "both is turned off for performance reasons in Factory, needs to be enabled in stable branch though"
-       length 1d
+       depends !task_24
+       length 15min
     }
     task task_26 "bump release numbers in Factory" {
        note "package release numbers in Factory need to be higher than in the released product so people who follow development can easily upgrade&#10;Should happen automatically by build service call for branch"
        depends !task_24
-       length 1d
+       length 1h
     }
     task task_27 "Remove &quot;Beta&quot; tags from packages and configs" {
        note "Use final release string in /etc/issue and remove beta.txt from install media."
        depends !task_24
-       length 1d
+       length 1h
     }
     task task_28 "set up Update project" {
        note "openSUSE:XX.Y:Update, use previous distro as template"
        depends !task_24
-       length 1d
+       length 1h
     }
     task task_29 "notify maintenance &amp; security about new branch" {
        note "the Maintenance and Security teams need to know that a new distribution is about to receive online updates"
        depends !task_28
-       length 1d
+       length 15min
     }
   }
   task task_30 "Bug fixing" {
@@ -159,7 +160,7 @@ task task_1 "Pre-Gold Master development" {
      note "legal team finished review and declares all issues being solved"
      length 1d
   }
-  task task_38 "Go/Nogo for declaring RC?" {
+  task go_nogo_rc1 "Go/Nogo for declaring RC?" {
      note "When all teams give their ok which means the current build is in good shape the build can be declared as Release Candidate (RC)"
      depends !task_30.task_35
      depends !task_30.task_34
@@ -168,12 +169,18 @@ task task_1 "Pre-Gold Master development" {
      depends !task_16.task_22
      depends !task_10
      depends !task_30
-     depends !task_23.task_27
+     depends !prepare_branch
      depends !task_4
      depends !task_36
      depends !task_2
      length 1d
   }
+
+  task declare_rc1 "Declare RC1" {
+    note "As result of the meeting the Release Manager declares the build as Release Candidate"
+    depends !go_nogo_rc1
+  }
+
   task task_39 "Artwork" {
      note "http://gitorious.org/opensuse/art/trees/master/"
     task task_40 "run competition for best artwork" {
@@ -251,9 +258,16 @@ task task_1 "Pre-Gold Master development" {
     }
   }
 }
-task task_55 "Gold Master development" {
+
+task rc1 "${product} ${version} RC1" {
+  depends !beta_phase.declare_rc1
+  flags calendar
+}
+
+task rc_phase "Gold Master development" {
    note "Milestone that covers from the RC2 Release to the Go/NoGo decision for the final Release"
-   depends task_193.task_194
+   depends roadmap_check.task_194
+   depends !beta_phase.declare_rc1
   task task_56 "Call for Release Parties" {
      note "http://en.opensuse.org/openSUSE:Launch_parties&#10;http://en.opensuse.org/openSUSE:Launch_party_HOWTO&#10;http://news.opensuse.org/2011/11/15/join-or-organize-opensuse-12-1-launch-parties/"
      length 1d
@@ -268,17 +282,17 @@ task task_55 "Gold Master development" {
   }
   task task_59 "Install Countdown link" {
      note "put a link to the countdown on Frontpages of all wikis, forum and www.opensuse.org"
-     depends task_1.task_39.task_50
+     depends beta_phase.task_39.task_50
      length 1d
   }
   task task_60 "Pre-release articles" {
      note "Publishing articles describing the ongoing work on the Release by the openSUSE &#10;Team at SUSE."
-     depends task_1.task_39
+     depends beta_phase.task_39
     task task_61 "Create pre-release articles" {
        note "This articles cover the major features we are presenting in the Release. These articles can be done by the openSUSE Team and the community&#10;"
-       depends task_1.task_39.task_52
+       depends beta_phase.task_39.task_52
        depends !!task_58
-       depends task_1.task_39.task_54
+       depends beta_phase.task_39.task_54
        length 1d
     }
     task task_62 "Publish pre-release articles" {
@@ -289,7 +303,7 @@ task task_55 "Gold Master development" {
   }
   task task_63 "Purchase Order for Promo DVDs" {
      note "Select Fab&#10;Decide how many DVDs to produce in which country and which Fab is going to do it."
-     depends task_1.task_39.task_51
+     depends beta_phase.task_39.task_51
      length 1d
   }
   task task_64 "monitor bug reports" {
@@ -411,34 +425,38 @@ task task_55 "Gold Master development" {
      note "make sure maintenance update repo generates proper delta rpms and zypper applies them"
      length 1d
   }
-  task task_91 "Declare build as GMC" {
-     note "The Release Manager get approval from the different coordinators and declare the final build as Gold Master Candidate "
-     depends !task_78.task_82
-     depends !task_68
-     depends !task_63
-     depends !task_60.task_62
-     depends !task_59
-     depends !task_83.task_88
-     depends !task_68.task_77
-     depends !task_89
-     depends !task_90
-     depends !task_83
-     depends task_189
-     length 1d
+
+  task go_nogo_gm "Go/no Go meeting" {
+    note "Management meeting including the Release Manager and the different managers involved in the Release process to confirm the Release, modify the final date or reject the Gold Master Candidate"
+    length 1h
+
+    depends !task_78.task_82
+    depends !task_68
+    depends !task_63
+    depends !task_60.task_62
+    depends !task_59
+    depends !task_83.task_88
+    depends !task_68.task_77
+    depends !task_89
+    depends !task_90
+    depends !task_83
+    depends task_189
+  }
+
+  task declare_gmc "Declare build as GMC" {
+     note "As result of the meeting the Release Manager declares the final build as Gold Master Candidate "
+     depends !go_nogo_gm
   }
 }
-task task_92 "Go/no Go meeting" {
-   note "Management meeting."
-   depends task_55
-  task task_93 "Go decision" {
-     note "Management meeting including the Release Manager and the different managers involved in the Release process to confirm the Release, modify the final date or reject the Gold Master Candidate"
-     depends task_55.task_91
-     length 1d
-  }
+
+task gm "${product} ${version} GM" {
+  depends !rc_phase.declare_gmc
+  flags calendar
 }
-task task_94 "Release process" {
+
+task release_process "Release process" {
    note "things done the days and hours between GM and GA"
-   depends task_193.task_195
+   depends roadmap_check.task_195
   task task_95 "Upload GM to internal server (dist)" {
      length 1d
   }
@@ -451,12 +469,12 @@ task task_94 "Release process" {
   }
   task task_98 "Sneak Peeks" {
      note "Daily blog posts about selected features of the new release to create expectations. Blog posts about the release features:"
-     depends task_193.task_194
+     depends roadmap_check.task_194
      length 1d
   }
   task task_99 "www.opensuse.org text snippet" {
      note "there's a small paragraph on www.opensuse.org that refers to download, highlighs etc."
-     depends task_1.task_39.task_49
+     depends beta_phase.task_39.task_49
      length 1d
   }
   task task_100 "Iso images" {
@@ -512,7 +530,7 @@ task task_94 "Release process" {
   }
   task task_112 "Product highlights page" {
      note "http://en.opensuse.org/openSUSE:Product_highlights_writing, http://en.opensuse.org/Product_highlights ask teams of important components to provide some text. Use release feature page as a base for this wiki page."
-     depends task_1.task_39.task_54
+     depends beta_phase.task_39.task_54
      length 1d
   }
   task task_113 "Translate opensuse.org front page" {
@@ -548,8 +566,8 @@ task task_94 "Release process" {
   }
   task task_120 "provide Promo DVD images to Fab" {
      note "promo DVD image needs to be uploaded to Fab so they can start production"
-     depends task_1.task_39.task_51
-     depends task_92.task_93
+     depends beta_phase.task_39.task_51
+     depends rc_phase.declare_gmc
      length 1d
   }
   task task_121 "Promo DVD production" {
@@ -558,9 +576,9 @@ task task_94 "Release process" {
   }
   task task_122 "Send PR package" {
      note "Items:&#10;* Poster DIN A1&#10;* Poster(s) DIN A3&#10;* Flyer C6 (openSUSE Flyer)&#10;* Bookmarks&#10;* DVDs&#10;* Sticker "
-     depends task_1.task_39.task_47
-     depends task_1.task_39.task_46
-     depends task_1.task_39.task_45
+     depends beta_phase.task_39.task_47
+     depends beta_phase.task_39.task_46
+     depends beta_phase.task_39.task_45
      depends !task_121
      length 1d
   }
@@ -661,7 +679,7 @@ task task_94 "Release process" {
   task task_146 "SUSE press release" {
      note "write official announcemnt by the company about openSUSE"
      depends !task_112
-     depends !task_165.task_166
+     depends !release_announcement.task_166
      length 1d
   }
   task task_147 "Press interviews" {
@@ -671,54 +689,55 @@ task task_94 "Release process" {
   }
   task task_148 "Presentation" {
      note "Creation of presentation for anyone to use&#10;https://github.com/openSUSE/artwork/tree/master/slides"
-     depends task_1.task_39
+     depends beta_phase.task_39
      length 1d
   }
-  task task_149 "make files readable on staging server" {
+  task files_readable "make files readable on staging server" {
      note "all mirrors can now catch up&#10;&#10;do this four hours before the announcement"
-     depends !task_165.task_168
+     #precedes !release_announcement.publish_announcement {gaplength 4h}
+     depends !release_announcement.check_announcement
      depends !task_111
      depends !task_144
-     length 1d
+     length 5min
   }
-  task task_150 "make all files visible on download.o.o " {
+  task files_visible "make all files visible on download.o.o " {
      note "make all files visible on download.opensuse.org, incl iso images "
-     depends !task_149
-     length 1d
+     depends !files_readable
+     length 5min
   }
-  task task_151 "change openSUSE-current" {
+  task symlink_current "change openSUSE-current" {
      note "change symlink openSUSE-current in distribution/ and update/ to point to new release "
-     depends !task_150
-     length 1d
+     depends !files_visible
+     length 5min
   }
-  task task_152 "rescan mirrors" {
+  task rescan_mirrors "rescan mirrors" {
      note "tell mirrorbrain to rescan mirrors"
-     depends !task_150
-     length 1d
+     depends !files_visible
+     length 5min
   }
   task task_153 "wait for mirrors to fill up" {
      note "15-20 mirrors should have picked up the new release before announcing the release"
-     depends !task_152
-     length 1d
+     depends !rescan_mirrors
+     length 4h
   }
   task task_154 "update software.opensuse.org download pages" {
      note "git@gitorious.org:opensuse/software-o-o.git&#10;&#10;app/controllers/main_controller.rb"
-     length 1d
+     length 1h
   }
   task task_155 "update software.opensuse.org search bar" {
-     length 1d
+     length 1h
   }
   task task_156 "deploy software.opensuse.org" {
      note "changes were only made in git so far so the git repo needs to be deployed to the server to make the new content visible"
      depends !task_155
      depends !task_153
      depends !task_154
-     length 1d
+     length 1h
   }
-  task task_157 "test software.opensuse.org" {
+  task test_soo "test software.opensuse.org" {
      note "make sure all links work fine"
      depends !task_156
-     length 1d
+     length 1h
   }
   task task_158 "create is_maintained data" {
      note "internal data used mainly by security to determine which packages are in which release"
@@ -750,7 +769,7 @@ task task_94 "Release process" {
      note "get notification from google about activity wrt openSUSE"
      length 1d
   }
-  task task_165 "Release announcement " {
+  task release_announcement "Release announcement " {
      note "group of tasks that need to be done for the release announcement"
      depends !task_112
     task task_166 "Write release announcement" {
@@ -766,11 +785,11 @@ task task_94 "Release process" {
        depends !task_166
        length 1d
     }
-    task task_168 "check the announcement" {
+    task check_announcement "check the announcement" {
        note "Revision by the content/marketing coordinator. Communicate the ok to Release Manager."
        depends !!task_159
        depends !task_167
-       length 1d
+       length 1h
     }
     task task_169 "Create correct links to webpages and wikies" {
        note "The Release Manager approves this task. Needs to be coordinated with infrastructure, infrastructure needs to be open before publishing"
@@ -780,41 +799,45 @@ task task_94 "Release process" {
        depends !!task_114
        depends !!task_115
        depends !!task_113
-       depends !task_168
+       depends !check_announcement
        length 1d
     }
-    task task_170 "Publish release announcement" {
+    task publish_announcement "Publish release announcement" {
        note "The Release Manager gives ok for publishing the announcement&#10;&#10;for the future this should be Tuesday 13:00 UTC"
-       depends !!task_157
+       depends !!test_soo
        depends !!task_153
        depends !task_169
+       start ${ga_date}
+       minstart ${ga_date}
+       maxend %{${ga_date}+1h}
       task task_171 "news.opensuse.org" {
-         length 1d
+         length 5min
       }
       task task_172 "opensuse-announce@opensuse.org" {
-         length 1d
+         length 5min
       }
       task task_173 "publish SUSE press release" {
          depends !!!task_146
-         length 1d
+         length 5min
       }
     }
     task task_174 "update freecode entry" {
        note "http://freecode.com/projects/suselinux"
-       length 1d
+       depends !publish_announcement
+       length 1h
     }
   }
   task task_175 "Release monitoring" {
      note "Task to be done the Release date after the announcement is out"
-     depends !task_165
+     depends !release_announcement
     task task_176 "promote launch on social media" {
        note "facebook, twitter, google+ This task needs coordination with community&#10;&#10;http://en.opensuse.org/openSUSE:Social_media_launch_plan"
-       depends !!task_165.task_170
+       depends !!release_announcement.publish_announcement
        length 1d
     }
     task task_177 "repeatedly scan for new mirrors" {
        note "Task done by service team during Release day for several hours"
-       depends !!task_165.task_170
+       depends !!release_announcement.publish_announcement
        length 1d
     }
     task task_178 "watch bandwidth usage" {
@@ -824,18 +847,25 @@ task task_94 "Release process" {
     }
     task task_179 "Monitoring real time impact" {
        note "openSUSE Team, Release Team and community memebrss involved answer questions, are available in openSUSE Channels, etc."
-       depends !!task_165.task_170
+       depends !!release_announcement.publish_announcement
        length 1d
     }
   }
 }
+
+task ga "${product} ${version} GA" {
+  depends !gm {gaplength 5d}
+  depends !release_process.release_announcement.publish_announcement
+  flags calendar
+}
+
 task task_180 "Evaluation" {
    note "post-release work"
-   depends task_193.task_196
+   depends roadmap_check.task_196
   task task_181 "collect press mentions" {
      note "add links to articles by the press to http://en.opensuse.org/In_the_press"
-     depends task_94.task_175.task_179
-     depends task_94.task_164
+     depends release_process.task_175.task_179
+     depends release_process.task_164
      length 1d
   }
   task task_182 "Collect stats about release" {
@@ -888,25 +918,25 @@ task task_189 "continuous openQA work" {
      length 1d
   }
 }
-task task_193 "Release process Roadmap check" {
+task roadmap_check "Release process Roadmap check" {
    note "http://en.opensuse.org/openSUSE:Roadmap"
   task task_194 "Define and publish Gold Master roadmap" {
      note "define which tasks need to be done and when during RC phase&#10;&#10;announce internally and externally"
-     depends task_1
-     depends task_1.task_38
+     depends beta_phase
+     depends beta_phase.declare_rc1
      length 1d
   }
   task task_195 "Define and publish Release schedule" {
      note "define what needs to be done at the day of the release&#10;&#10;announce internally and externally"
-     depends task_92
+     depends rc_phase.declare_gmc
      length 1d
   }
   task task_196 "Define Evaluation process roadmap" {
      note "define which tasks need to be done after the release&#10;&#10;announce internally and externally"
-     depends task_94.task_175.task_179
-     depends task_94.task_175.task_178
-     depends task_94.task_175.task_176
-     depends task_94
+     depends release_process.task_175.task_179
+     depends release_process.task_175.task_178
+     depends release_process.task_175.task_176
+     depends release_process
      length 1d
   }
 }

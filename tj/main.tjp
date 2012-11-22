@@ -4,6 +4,7 @@ macro vnum [1230]
 macro start_date [2012-11-01]
 macro start_work [2012-11-02]
 macro end_date [2013-05-01]
+macro ga_date [2013-03-13-13:00:00]
 
 project ${product}_${vnum} "${product} ${version} release schedule" "1.0" ${start_date}-${end_date} {
   timezone "Europe/Berlin"
@@ -24,6 +25,15 @@ copyright "SUSE Linux Products GmbH, 2012"
 
 resource dev "Developers" {
 }
+
+flags calendar
+flags marketing
+flags artwork
+flags releng
+flags legal
+flags security
+flags docu
+flags qa
 
 include "tasks.tji"
 
