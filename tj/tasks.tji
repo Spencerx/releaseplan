@@ -33,6 +33,9 @@ task beta_phase "Beta Phase" {
     depends !!alpha_phase.ms2 { gaplength 25d }
     flags calendar
   }
+  task announce_feature_freeze "Announce Feature Freeze" {
+    depends !beta1
+  }
    note "Tasks that need to be done for Alpha, Beta and RC releases that affect the Gold Master Release "
   task task_2 "Expected new features document" {
      note "Compile a list of features for the new release. E.g by querying fate"
@@ -48,7 +51,11 @@ task beta_phase "Beta Phase" {
      length 1d
   }
   task manuals "Manuals" {
-     note "Tasks related with the 12.2 manuals. The Documentation Team coordinate them."
+    note "Tasks related with the 12.2 manuals. The Documentation Team coordinate them."
+    task docu_checklist "Send Form to docu team" {
+      note "docu has form that needs to filled in which tells them about deadlines etc so they can plan."
+      length 1d
+    }
     task task_6 "document new features" {
        note "Relevant new features shipped with the Release need to be added to the Manuals."
        length 1d
@@ -144,17 +151,17 @@ task beta_phase "Beta Phase" {
        depends !task_24
        length 1h
     }
-    task task_27 "Remove &quot;Beta&quot; tags from packages and configs" {
+    task task_27 "Remove \"Beta\" tags from packages and configs" {
        note "Use final release string in /etc/issue and remove beta.txt from install media."
        depends !task_24
        length 1h
     }
     task task_28 "set up Update project" {
-       note "openSUSE:XX.Y:Update, use previous distro as template"
+       note "openSUSE:${version}:Update, use previous distro as template. Don't forget openSUSE:${version}:NonFree:Update"
        depends !task_24
        length 1h
     }
-    task task_29 "notify maintenance &amp; security about new branch" {
+    task task_29 "notify maintenance & security about new branch" {
        note "the Maintenance and Security teams need to know that a new distribution is about to receive online updates"
        depends !task_28
        length 15min
