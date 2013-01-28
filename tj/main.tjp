@@ -1,8 +1,8 @@
 macro product [openSUSE]
 macro version [12.3]
 macro vnum [1230]
-macro start_date [2012-11-01]
-macro start_work [2012-11-02]
+macro start_date [2012-09-15]
+macro start_work [2012-09-16]
 macro end_date [2013-05-01]
 macro ga_date [2013-03-13-13:00:00]
 

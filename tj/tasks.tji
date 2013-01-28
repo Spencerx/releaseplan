@@ -1,4 +1,38 @@
-task beta_phase "Pre-Gold Master development" {
+task start "Start new release" {
+  start ${start_work}
+}
+
+task alpha_phase "Alpha Phase" {
+  task ms0 "Milestone 0 release" {
+    depends !!start {gaplength 13d}
+    flags calendar
+  }
+  task ms1_development "Development phase for MS1" {
+    length 26d
+    depends !ms0
+  }
+  task ms1 "Milestone 1 release" {
+    depends !ms1_development
+    flags calendar
+  }
+  task ms2_development "Development phase for MS2" {
+    length 25d
+    depends !ms1
+  }
+  task ms2 "Milestone 2 release" {
+    depends !ms2_development
+    flags calendar
+  }
+
+}
+
+task beta_phase "Beta Phase" {
+  depends !alpha_phase
+
+  task beta1 "Beta 1 release" {
+    depends !!alpha_phase.ms2 { gaplength 25d }
+    flags calendar
+  }
    note "Tasks that need to be done for Alpha, Beta and RC releases that affect the Gold Master Release "
   task task_2 "Expected new features document" {
      note "Compile a list of features for the new release. E.g by querying fate"
@@ -8,12 +42,12 @@ task beta_phase "Pre-Gold Master development" {
      note "e.g. minimal pattern to fit the expected size of 500-600 MB"
      length 1d
   }
-  task task_4 "create test plan" {
+  task test_plan "create test plan" {
      note "define test cases for QA"
      depends !task_2
      length 1d
   }
-  task task_5 "Manuals" {
+  task manuals "Manuals" {
      note "Tasks related with the 12.2 manuals. The Documentation Team coordinate them."
     task task_6 "document new features" {
        note "Relevant new features shipped with the Release need to be added to the Manuals."
@@ -29,17 +63,17 @@ task beta_phase "Pre-Gold Master development" {
        depends !task_6
        length 1d
     }
-    task task_9 "documentation team finished" {
+    task docu_team_finished "documentation team finished" {
        note "checkpoint for doc team being ready"
-       depends !!task_10.task_15
+       depends !!translations.translations_finished
        length 1d
     }
   }
-  task task_10 "Translations" {
+  task translations "Translations" {
      note "Tasks related with translations. A coordinator needs to be defined here.&#10;&#10;http://i18n.opensuse.org/stats/"
     task task_11 "manuals" {
        note "translate openSUSE manuals to major languages"
-       depends !!task_5.task_8
+       depends !!manuals.task_8
        length 1d
     }
     task task_12 "package descriptions" {
@@ -54,7 +88,7 @@ task beta_phase "Pre-Gold Master development" {
        note "translate the release notes into the main languages"
        length 1d
     }
-    task task_15 "translation check finished" {
+    task translations_finished "translation check finished" {
        note "checkpoint for all translations being ready"
        depends !task_12
        depends !task_13
@@ -62,7 +96,7 @@ task beta_phase "Pre-Gold Master development" {
        length 1d
     }
   }
-  task task_16 "Security" {
+  task security "Security" {
      note "Task related with security. It is desired to include them in the release process."
     task task_17 "review new setuid binaries" {
        note "the security team audits all new binaries that have the setuid bit set to find potential security issues before the release"
@@ -84,7 +118,7 @@ task beta_phase "Pre-Gold Master development" {
        note "apparmor profiles need to be checked and potentially be updated to make sure they are still match the packages"
        length 1d
     }
-    task task_22 "security check finished" {
+    task security_check_finished "security check finished" {
        note "checkpoint for security team bein ready"
        depends !task_21
        depends !task_20
@@ -126,7 +160,7 @@ task beta_phase "Pre-Gold Master development" {
        length 15min
     }
   }
-  task task_30 "Bug fixing" {
+  task bug_fixing "Bug fixing" {
      note "This is a continuos task done by the Release Team, openSUSE Team, packagers and others. Added here to reflect the final process"
     task task_31 "fix bug" {
        note "the packager fixes bug in his package(s)"
@@ -142,38 +176,38 @@ task beta_phase "Pre-Gold Master development" {
        depends !task_32
        length 1d
     }
-    task task_34 "check in to distribution" {
+    task checkin "check in to distribution" {
        note "the opensuse release team checks the package into the appropriate distribution"
        depends !task_33
        length 1d
     }
-    task task_35 "update most annoying bugs list" {
+    task most_annoying_bugs_list "update most annoying bugs list" {
        note "Add bugs that affect lots of users to the list of most annoying bugs:&#10;http://en.opensuse.org/openSUSE:Most_annoying_bugs"
        length 1d
     }
   }
-  task task_36 "update rsync modules used by the mirrors" {
+  task update_rsync "update rsync modules used by the mirrors" {
      note "adjust rsync modules for full-, 160GB- and 80GB-mirrors to make sure the most requested files have a sufficient amount of mirrors"
      length 1d
   }
-  task task_37 "Go from Legal team" {
+  task legal_go "Go from Legal team" {
      note "legal team finished review and declares all issues being solved"
      length 1d
   }
   task go_nogo_rc1 "Go/Nogo for declaring RC?" {
      note "When all teams give their ok which means the current build is in good shape the build can be declared as Release Candidate (RC)"
-     depends !task_30.task_35
-     depends !task_30.task_34
-     depends !task_37
-     depends !task_5.task_9
-     depends !task_16.task_22
-     depends !task_10
-     depends !task_30
+     depends !beta1 {gaplength 15d}
+     depends !bug_fixing.most_annoying_bugs_list
+     depends !bug_fixing.checkin
+     depends !legal_go
+     depends !manuals.docu_team_finished
+     depends !security.security_check_finished
+     depends !translations
+     depends !bug_fixing
      depends !prepare_branch
-     depends !task_4
-     depends !task_36
+     depends !test_plan
+     depends !update_rsync
      depends !task_2
-     length 1d
   }
 
   task declare_rc1 "Declare RC1" {

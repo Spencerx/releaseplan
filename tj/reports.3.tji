@@ -199,7 +199,7 @@ taskreport calendar "Important Milestones" {
   columns bsi { title 'WBS' },
           name,
           start, end,
-          chart { ${TaskTip} }
+          chart { ${TaskTip} scale week}
   timeformat "%a %Y-%m-%d"
   loadunit days
   hideresource 1
