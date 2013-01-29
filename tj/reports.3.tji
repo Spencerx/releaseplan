@@ -72,6 +72,37 @@ textreport frame "" {
     center '<[report id="calendar"]>'
   }
 
+  textreport "TasksQA" {
+    formats html
+    title "QA"
+    center '<[report id="tasks_qa"]>'
+  }
+
+  textreport "TasksMarketing" {
+    formats html
+    title "Marketing"
+    center '<[report id="tasks_marketing"]>'
+  }
+
+
+  textreport "TasksArtwork" {
+    formats html
+    title "Artwork"
+    center '<[report id="tasks_artwork"]>'
+  }
+
+  textreport "TasksDocu" {
+    formats html
+    title "Docu"
+    center '<[report id="tasks_docu"]>'
+  }
+
+  textreport "TasksTranslations" {
+    formats html
+    title "Translations"
+    center '<[report id="tasks_translations"]>'
+  }
+
 }
 
 # A traditional Gantt chart with a project overview.
@@ -208,6 +239,61 @@ taskreport calendar "Important Milestones" {
 
 icalreport "${product}-${version}-calendar" {
   hidetask ~calendar
+}
+
+taskreport tasks_qa "QA" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} scale week}
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~qa
+}
+
+taskreport tasks_marketing "Marketing" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} scale week}
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~marketing
+}
+
+taskreport tasks_artwork "Artwork" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} scale week}
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~artwork
+}
+
+taskreport tasks_docu "Docu" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} scale week}
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~docu
+}
+
+taskreport tasks_translations "Translators" {
+  columns bsi { title 'WBS' },
+          name,
+          start, end,
+          chart { ${TaskTip} scale week}
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource 1
+  hidetask ~translations
 }
 
 tagfile "tags"
