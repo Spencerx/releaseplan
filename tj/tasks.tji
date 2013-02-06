@@ -47,6 +47,14 @@ task beta_phase "Beta Phase" {
      flags marketing
   }
 
+  task social_media "develop social media marketing plan" {
+     note "make a plan about what, when and where to post"
+     depends !new_features_document
+     length 1d
+     flags marketing
+  }
+
+
   task test_plan "create test plan" {
      note "define test cases for QA"
      depends !new_features_document
@@ -257,8 +265,8 @@ task beta_phase "Beta Phase" {
 
   task task_39 "Artwork" {
     note "http://gitorious.org/opensuse/art/trees/master/"
-    task task_40 "run competition for best artwork" {
-      note "competition and voting for design of next release"
+    task task_40 "brainstorm for best artwork" {
+      note "sit together and come up with a new design for the new release"
       length 1d
       flags artwork
     }
@@ -371,6 +379,7 @@ task rc_phase "Gold Master development" {
      depends beta_phase.task_39.countdown
      flags marketing
      length 1d
+     complete 100
   }
   task task_60 "Pre-release articles" {
      note "Publishing articles describing the ongoing work on the Release by the openSUSE &#10;Team at SUSE."

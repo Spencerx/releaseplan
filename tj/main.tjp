@@ -18,7 +18,7 @@ project ${product}_${vnum} "${product} ${version} release schedule" "1.0" ${star
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2012-11-07
+  now 2013-02-06
 }
 
 copyright "SUSE Linux Products GmbH, 2012"
