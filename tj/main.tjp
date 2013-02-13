@@ -6,7 +6,7 @@ macro start_work [2012-09-16]
 macro end_date [2013-05-01]
 macro ga_date [2013-03-13-13:00:00]
 
-project ${product}_${vnum} "${product} ${version} release schedule" "1.0" ${start_date}-${end_date} {
+project ${product}_${vnum} "${product} ${version} release schedule" "1.0" ${start_date} - ${end_date} {
   timezone "Europe/Berlin"
   # Hide the clock time. Only show the date.
   timeformat "%Y-%m-%d"

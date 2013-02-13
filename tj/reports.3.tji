@@ -7,9 +7,9 @@ macro TaskTip [
     '''Start: ''' <-query attribute='start'->
     '''End: ''' <-query attribute='end'->
     ----
-    '''Resources:'''
+    '''Description:'''
 
-    <-query attribute='resources'->
+    <-query attribute='note'->
     ----
     '''Precursors: '''
 
@@ -60,11 +60,11 @@ textreport frame "" {
     title "Resource Graph"
     center '<[report id="resourceGraph"]>'
   }
-  textreport "ReleaseProcess" {
-    formats html
-    title "Release Process"
-    center '<[report id="release"]>'
-  }
+#  textreport "ReleaseProcess" {
+#    formats html
+#    title "Release Process"
+#    center '<[report id="release"]>'
+#  }
 
   textreport "ImportantMilestones" {
     formats html
@@ -110,7 +110,7 @@ taskreport overview "" {
   header -8<-
     === Project Overview ===
 
-    blah
+    openSUSE 12.3 release plan
 
     === Original Project Plan ===
   ->8-
@@ -123,17 +123,9 @@ taskreport overview "" {
   timeformat "%a %Y-%m-%d"
   loadunit days
   hideresource 1
-  caption 'All effort values are in man days.'
+  caption 'the gantt is not accurate'
 
   footer -8<-
-    === Staffing ===
-
-    All project phases are properly staffed. See [[ResourceGraph]] for
-    detailed resource allocations.
-
-    === Current Status ===
-
-    Some blurb about the current situation.
   ->8-
 }
 
@@ -215,16 +207,16 @@ resourcereport resourceGraph "" {
   sorttasks plan.start.up
 }
 
-taskreport release "" {
-  columns bsi { title 'WBS' },
-          name,
-          #start, end, effort,
-          chart { ${TaskTip} }
-  timeformat "%a %Y-%m-%d"
-  loadunit days
-  hideresource 1
-  taskroot release_process
-}
+#taskreport release "" {
+#  columns bsi { title 'WBS' },
+#          name,
+#          #start, end, effort,
+#          chart { ${TaskTip} }
+#  timeformat "%a %Y-%m-%d"
+#  loadunit days
+#  hideresource 1
+#  taskroot release_process
+#}
 
 taskreport calendar "Important Milestones" {
   columns bsi { title 'WBS' },
